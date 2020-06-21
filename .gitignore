@@ -1,0 +1,6 @@
+project_data/*
+models/*
+self_supervised_qa/UnsupervisedMT
+self_supervised_qa/mlruns
+self_supervised_qa/data/*
+mlruns/*
