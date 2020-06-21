@@ -31,13 +31,20 @@ def main():
     if args["cli"]      :
         reader = FARMReader(model_name_or_path=args["--save_dir"], use_gpu=False)
         query_doc_list=[]
-        for i,text_file in enumerate(list(glob.glob(data_dir+'/*.txt'))):
+        for text_file in list(glob.glob(data_dir+'/*.txt')):
             with open(text_file,"r") as f:
                 context=f.read()
-            query_doc_list.append(Document(id=str(i),text=context))
+            #context=context.split(".")
+            context=[context]
+            for i,para in enumerate(context):    
+                query_doc_list.append(Document(id=str(i),text=para))
         while 1:  
             question=input("CTRL C to exit >")
-            print(reader.predict(question,query_doc_list))              
+            prediction=reader.predict(question,query_doc_list)
+            print("answer:>> ",prediction['answers'][0]['answer']) 
+            print("-----")
+            print("context:>> ",prediction['answers'][0]['context'])
+            print("-------------")             
 
 if __name__=='__main__':
     main()
