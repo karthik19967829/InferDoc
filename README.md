@@ -1,10 +1,10 @@
 # InferDoc
 This repo has code to generate synthetic question answering training data using https://github.com/facebookresearch/UnsupervisedQA and training them using https://github.com/deepset-ai/haystack
 
-# QA dataset generation
+# SQUAD style QA dataset generation
 cd self_supervised_qa && python -m unsupervisedqa.generate_synthetic_qa_data example_input.txt example_output
 
-## QA Model train ,eval and CLI testing
+## Transformer QA Model train ,eval and CLI testing
 # Usage:
     qa_model.py train --data_dir=<data_dir> --train_file_name=<train_file_name> --dev_file_name=<dev_file_name>  --save_dir=<save_dir>\
     qa_model.py test --data_dir=<data_dir> --eval_file_name=<eval_file_name> --save_dir=<save_dir>\
