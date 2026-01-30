@@ -1,6 +1,6 @@
 nltk==3.4.5
 numpy==1.15.4
-torch==0.4.1
+torch==2.2.0
 spacy==2.0.16
 attrs==18.1
 allennlp==0.7.1
